@@ -13,68 +13,91 @@ Abstraction is talking linear code and turning it into functional or object orie
 
 # Menu definitions
 class Menu:
-    #String file
+    # String playground code
     def stringy(self):
         exec(open("./stringy.py").read())
-        print(self.options[1])
-    #Numbers file
-    def numy(self):
-        exec(open("./stringy.py").read())
-        print(self.options[2])
-    #List file
+
+    # Number playground code
+    def numby(self):
+        exec(open("./numby.py").read())
+
+    # List, Dictionary, Tuple playground code
     def listy(self):
-        exec(open("./stringy.py").read())
-        print(self.options[3])
-    #Dictionary file
-    def dicty(self):
-        exec(open("./stringy.py").read())
-        print(self.options[4])
-    #Meun options and assoicated function calls
+        exec(open("./listy.py").read())
+
+    # ASCII/unicode art imperative style
+    def loopy(self):
+        exec(open("./loopy.py").read())
+
+    # ASCII/unicode art object oriented style
+    def classy(self):
+        exec(open("./classy.py").read())
+
+    #Menu name/value data
     options = {
         0: ["Exit", None],
         1: ["Strings", stringy],
-        2: ["Numbers", numy],
+        2: ["Numbers", numby],
         3: ["Lists", listy],
-        4: ["Dictionary", dicty]
+        4: ["Loops", loopy],
+        5: ["Classes", classy]
     }
+    #Options value indexes
+    title = 0
+    func = 1
+
+    # gets option from options list (ie 0: Exit)
+    def get_title(self, i):
+        # return key and title from options
+        return str(i) + ": " + self.options[i][self.title]
+
+    # runs function in options list
+    def run(self, i):
+        # execute func from options
+        exe_func = self.options[i][self.func]
+        # test if func exists
+        if exe_func is not None:
+            print(str(type(exe_func)) + " " + str(exe_func))
+            exe_func(self)  # executes func
+        # return true if executed, else false
+        return bool(exe_func)
 
 
 # Menu control
 def menu_control():
-    menu: Menu = Menu()
+    menu: Menu = Menu()  # menu object
 
     repeat: bool = True
     while repeat:
         # heading section
         print()
-        print("=" * 25)
+        print("=" * 25)  # print character "=" 25 times
         print("Please Select An Option")
         print("=" * 25)
 
         # output menu options
         items = len(menu.options)
-        for i in range(0, items):
-            print(str(i) + ": " + menu.options.get(i)[0])
+        for i in range(items):
+            print(menu.get_title(i))
 
         # get choice
         choice = input("Select Option: ")
 
         # validation section
         try:  # protects/traps errors
-            choice = int(choice)  # convert input to Integer                   
+            # convert choice into menu index integer type
+            choice = int(choice)
+            # test if choice is in menu index
             if choice in menu.options:
-                if menu.options.get(choice)[1] is None:  # 0 condition
-                    return  # exit
-                else:  # valid menu
-                    menu.options.get(choice)[1](menu)  # call function
+                #run choice
+                repeat = menu.run(choice)
             else:
-                raise IndexError()  # raise index error
+                #raise error
+                raise IndexError()
         except ValueError:  # not a number error
             print("Not a Number, enter a number.", choice)
-            repeat = True
         except IndexError:
             print("Out of Bounds. {0} doesn't exist.".format(choice))
-            repeat = True
 
 
 # start menu
