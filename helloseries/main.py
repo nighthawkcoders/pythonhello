@@ -40,6 +40,7 @@ def classy():
 
 """ Section to define Menu  """
 
+
 # Menu data and methods
 class Menu:
     # Initialize menu properties
@@ -76,44 +77,46 @@ class Menu:
 
 """ Section to display Menu """
 
+
 # Menu display and execution
-def menu_control():
-    # menu object derived from Class Menu
-    menu: Menu = Menu()
-    # menu control loop
-    repeat: bool = True
-    while repeat:
-        # heading section
-        print()
-        print("=" * 25)  # print character "=" 25 times
-        print("Please Select An Option")
-        print("=" * 25)
+def menu_control(menu):
+    # heading section
+    print()
+    print("=" * 25)  # print character "=" 25 times
+    print("Please Select An Option")
+    print("=" * 25)
 
-        # menu options
-        items = len(menu.options)
-        for i in range(items):
-            print(menu.get_title(i))
+    # menu options
+    items = len(menu.options)
+    for i in range(items):
+        print(menu.get_title(i))
 
-        # get choice from user
-        index = input("Select Option: ")
+    # get choice from user
+    index = input("Select Option: ")
 
-        # validate choice and run
-        try:  # protects/traps errors from user
-            # convert input into integer type
-            index = int(index)
-            # test if choice is in menu index
-            if index in menu.options:
-                # runs the choice, repeat set to false if Exit is picked
-                repeat = menu.run(index)
-            else:
-                # raises index error
-                raise IndexError()
-        except ValueError:  # not a number error occurs if int(index) fails
-            print("Not a number, {0} is not a valid index.".format(index))
-        except IndexError:  # error raised above
-            print("Out of range. {0} is not a valid index.".format(index))
+    # validate choice and run
+    try:  # protects/traps errors from user
+        # convert input into integer type
+        index = int(index)
+        # test if choice is in menu index
+        if index in menu.options:
+            if index == 0:  # exit condition
+                return      # exit out of menu_control
+            # runs the choice
+            menu.run(index)
+        else:
+            # raises index error
+            raise IndexError()
+    except ValueError:  # not a number error occurs if int(index) fails
+        print("Not a number, {0} is not a valid index.".format(index))
+    except IndexError:  # error raised above
+        print("Out of range. {0} is not a valid index.".format(index))
+    menu_control(menu)  # recursion
+
 
 """ Section to Start execution  """
 
-# Call function to start menu control
-menu_control()
+# menu object derived from "Class Menu"
+menu: Menu = Menu()
+# Call function "def menu_control"
+menu_control(menu)
