@@ -17,6 +17,7 @@ Assignment, add 5 things
 
 #Ouput message
 print("Hello, World!")              #message in quotes is a string
+print("Hello Series: stringy.py")   #identification message
 print()                             #blank line
 
 #Using a scalar variable
