@@ -33,7 +33,7 @@ class Menu:
     def classy(self):
         exec(open("./classy.py").read())
 
-    #Menu name/value data
+    # Menu index and data
     options = {
         0: ["Exit", None],
         1: ["Strings", stringy],
@@ -42,19 +42,19 @@ class Menu:
         4: ["Loops", loopy],
         5: ["Classes", classy]
     }
-    #Options value indexes
+    # Options data indexes
     title = 0
     func = 1
 
-    # gets option from options list (ie 0: Exit)
-    def get_title(self, i):
+    # returns option from options list
+    def get_title(self, index):
         # return key and title from options
-        return str(i) + ": " + self.options[i][self.title]
+        return str(index) + ": " + self.options[index][self.title]
 
-    # runs function in options list
-    def run(self, i):
+    # runs a function in options list
+    def run(self, index):
         # execute func from options
-        exe_func = self.options[i][self.func]
+        exe_func = self.options[index][self.func]
         # test if func exists
         if exe_func is not None:
             print(str(type(exe_func)) + " " + str(exe_func))
@@ -65,8 +65,9 @@ class Menu:
 
 # Menu control
 def menu_control():
-    menu: Menu = Menu()  # menu object
-
+    # menu object derived from Class Menu
+    menu: Menu = Menu()
+    # menu control loop
     repeat: bool = True
     while repeat:
         # heading section
@@ -75,29 +76,29 @@ def menu_control():
         print("Please Select An Option")
         print("=" * 25)
 
-        # output menu options
+        # menu options
         items = len(menu.options)
         for i in range(items):
             print(menu.get_title(i))
 
-        # get choice
-        choice = input("Select Option: ")
+        # get choice from user
+        index = input("Select Option: ")
 
-        # validation section
-        try:  # protects/traps errors
-            # convert choice into menu index integer type
-            choice = int(choice)
+        # validate choice and run
+        try:  # protects/traps errors from user
+            # convert input into integer type
+            index = int(index)
             # test if choice is in menu index
-            if choice in menu.options:
-                #run choice
-                repeat = menu.run(choice)
+            if index in menu.options:
+                # runs the choice, repeat set to false if Exit is picked
+                repeat = menu.run(index)
             else:
-                #raise error
+                # raises index error
                 raise IndexError()
-        except ValueError:  # not a number error
-            print("Not a Number, enter a number.", choice)
-        except IndexError:
-            print("Out of Bounds. {0} doesn't exist.".format(choice))
+        except ValueError:  # not a number error occurs if int(index) fails
+            print("Not a number, {0} is not a valid index.".format(index))
+        except IndexError:  # error raised above
+            print("Out of range. {0} is not a valid index.".format(index))
 
 
 # start menu

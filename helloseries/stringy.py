@@ -13,6 +13,9 @@ Assignment, add 5 things
   3. make other words or phrases from sentence
   4. ... you pick ...
   5. ... you pick ...
+
+Explore online tutorials
+https://www.geeksforgeeks.org/python-strings/?ref=lbp
 """
 
 #Ouput message
