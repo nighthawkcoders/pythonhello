@@ -6,39 +6,39 @@
   4. ... you pick ...
   5. ... you pick ...
 """
-# Menu names
-menu_choices = ["Exit", "Strings", "Numbers", "Lists", "Dictionaries"]
 
 
 # Menu definitions
 class Menu:
-
+    #String file
     def stringy(self):
-        # run stringy.py file
-        print(menu_choices[1])
         exec(open("./stringy.py").read())
-
+        print(self.options[1])
+    #Numbers file
     def numy(self):
-        print(menu_choices[2])
-
+        exec(open("./stringy.py").read())
+        print(self.options[2])
+    #List file
     def listy(self):
-        print(menu_choices[3])
-
+        exec(open("./stringy.py").read())
+        print(self.options[3])
+    #Dictionary file
     def dicty(self):
-        print(menu_choices[4])
-
+        exec(open("./stringy.py").read())
+        print(self.options[4])
+    #Meun options and assoicated function calls
     options = {
-        0: [menu_choices[0], None],
-        1: [menu_choices[1], stringy],
-        2: [menu_choices[2], numy],
-        3: [menu_choices[3], listy],
-        4: [menu_choices[4], dicty]
+        0: ["Exit", None],
+        1: ["Strings", stringy],
+        2: ["Numbers", numy],
+        3: ["Lists", listy],
+        4: ["Dictionary", dicty]
     }
 
 
 # Menu control
 def menu_control():
-    menu = Menu()
+    menu: Menu = Menu()
 
     repeat: bool = True
     while repeat:
@@ -58,7 +58,7 @@ def menu_control():
 
         # validation section
         try:  # protects/traps errors
-            choice = int(choice)  # convert input to Integer
+            choice = int(choice)  # convert input to Integer                   
             if choice in menu.options:
                 if menu.options.get(choice)[1] is None:  # 0 condition
                     return  # exit
