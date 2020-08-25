@@ -15,27 +15,27 @@ Abstraction is talking linear code and turning it into functional or object orie
 
 # String playground code
 def stringy():
-    exec(open("./stringy.py").read())
+    exec(open("stringy.py").read())
 
 
 # Number playground code
 def numby():
-    exec(open("./numby.py").read())
+    exec(open("numby.py").read())
 
 
 # List, Dictionary, Tuple playground code
 def listy():
-    exec(open("./listy.py").read())
+    exec(open("listy.py").read())
 
 
 # ASCII/unicode art imperative style
 def loopy():
-    exec(open("./loopy.py").read())
+    exec(open("loopy.py").read())
 
 
 # ASCII/unicode art object oriented style
 def classy():
-    exec(open("./classy.py").read())
+    exec(open("classy.py").read())
 
 
 """ Section to define Menu  """

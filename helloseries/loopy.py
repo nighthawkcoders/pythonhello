@@ -21,7 +21,7 @@
 
 print("Hello Series: loopy.py")  # identification message
 
-# 2D array data assignment
+""" 2D array data assignment """
 monkeys = [
     [
         "ʕง ͠° ͟ل͜ ͡°)ʔ ",  # [0][0] eyes
