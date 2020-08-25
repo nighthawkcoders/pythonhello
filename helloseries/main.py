@@ -10,41 +10,52 @@ The Menu code in this file is organized in both functional and objected oriented
 Abstraction is talking linear code and turning it into functional or object oriented code.  This is a key idea on the AP CSP exam.
 """
 
+""" Section to define Python files and execution  """
 
-# Menu definitions
+
+# String playground code
+def stringy():
+    exec(open("./stringy.py").read())
+
+
+# Number playground code
+def numby():
+    exec(open("./numby.py").read())
+
+
+# List, Dictionary, Tuple playground code
+def listy():
+    exec(open("./listy.py").read())
+
+
+# ASCII/unicode art imperative style
+def loopy():
+    exec(open("./loopy.py").read())
+
+
+# ASCII/unicode art object oriented style
+def classy():
+    exec(open("./classy.py").read())
+
+
+""" Section to define Menu  """
+
+# Menu data and methods
 class Menu:
-    # String playground code
-    def stringy(self):
-        exec(open("./stringy.py").read())
-
-    # Number playground code
-    def numby(self):
-        exec(open("./numby.py").read())
-
-    # List, Dictionary, Tuple playground code
-    def listy(self):
-        exec(open("./listy.py").read())
-
-    # ASCII/unicode art imperative style
-    def loopy(self):
-        exec(open("./loopy.py").read())
-
-    # ASCII/unicode art object oriented style
-    def classy(self):
-        exec(open("./classy.py").read())
-
-    # Menu index and data
-    options = {
-        0: ["Exit", None],
-        1: ["Strings", stringy],
-        2: ["Numbers", numby],
-        3: ["Lists", listy],
-        4: ["Loops", loopy],
-        5: ["Classes", classy]
-    }
-    # Options data indexes
-    title = 0
-    func = 1
+    # Initialize menu properties
+    def __init__(self):
+        # Menu index and data
+        self.options = {
+            0: ["Exit", None],
+            1: ["Strings", stringy],
+            2: ["Numbers", numby],
+            3: ["Lists", listy],
+            4: ["Loops", loopy],
+            5: ["Classes", classy]
+        }
+        # Options data indexes
+        self.title = 0
+        self.func = 1
 
     # returns option from options list
     def get_title(self, index):
@@ -58,12 +69,14 @@ class Menu:
         # test if func exists
         if exe_func is not None:
             print(str(type(exe_func)) + " " + str(exe_func))
-            exe_func(self)  # executes func
+            exe_func()  # executes func
         # return true if executed, else false
         return bool(exe_func)
 
 
-# Menu control
+""" Section to display Menu """
+
+# Menu display and execution
 def menu_control():
     # menu object derived from Class Menu
     menu: Menu = Menu()
@@ -100,6 +113,7 @@ def menu_control():
         except IndexError:  # error raised above
             print("Out of range. {0} is not a valid index.".format(index))
 
+""" Section to Start execution  """
 
-# start menu
+# Call function to start menu control
 menu_control()
