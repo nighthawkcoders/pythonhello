@@ -1,6 +1,23 @@
+"""
+Playground code for Python strings
+
+A string is a collection of one or more characters.
+
+Strings can be put in a single quote, double-quote or triple quote.
+
+Strings are arrays of bytes representing Unicode characters.
+
+Assignment, add 5 things
+  1. make a sentence with punctuation
+  2. manipulate the sentence
+  3. make other words or phrases from sentence
+  4. ... you pick ...
+  5. ... you pick ...
+"""
+
 #Ouput message
 print("Hello, World!")              #message in quotes is a string
-print()
+print()                             #blank line
 
 #Using a scalar variable
 hello = "Hello Python!"             #variable assignment, put string in variable
@@ -38,12 +55,6 @@ print(hello2[1] + " " + hello2[0])  #words backwords
 print(hello2[1][0] + " " + hello2[0][0])
 print()
 
-"""
-In Python... 
-Strings are arrays of bytes representing Unicode characters.
-A string is a collection of one or more characters
-Strings can be put in a single quote, double-quote or triple quote.
-"""
 print(hello + """ ("quotes") """)   #using triple quotes to put quotes in message
 hello3 = hello.split()
 hello3.append("""("quotes")""")     #append method adds to the list of words
@@ -53,15 +64,3 @@ print(len(hello3))                  #length of list
 hello3.sort()
 print(hello3)                #sort list
 print()
-
-""" 
-Assignment: explore and play with the above, for instance...
-1. make a sentence with punctuation
-2. manipulate the sentence
-3. make other words or phrases from sentence
-4. ...
-
-do at least 5 things, share and exchange with pair share partner 
-"""
-
-

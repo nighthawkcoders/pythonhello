@@ -1,10 +1,13 @@
 """
-  Assignment 1: Extend 5 things with stringy
-  1. make a sentence with punctuation
-  2. manipulate the sentence
-  3. make other words or phrases from sentence
-  4. ... you pick ...
-  5. ... you pick ...
+Python starting point for Project Hello Series project is this main.py code. This main.py code has been designed to run a text based Menu.
+
+A text base menu has purpose of getting input from user and performing the selected action.  This code has been designed to run  code from multiple files.
+
+Some of the Python files in this Project have a linear organization.  The intention of these files is to introduce, or say hello, to the features of the language.
+
+The Menu code in this file is organized in both functional and objected oriented styles.  By the end of this series, it will be important to understand the topics in the menu and identify code in linear, functional, or objected oriented structures.
+
+Abstraction is talking linear code and turning it into functional or object oriented code.  This is a key idea on the AP CSP exam.
 """
 
 
