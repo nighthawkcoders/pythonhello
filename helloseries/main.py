@@ -37,7 +37,7 @@ def loopy():
 # ASCII/unicode art object oriented style
 def classy():
     import classy
-    cl: classy.Classy = classy.Classy()
+    cl = classy.Classy()
     cl.print_monkeys()
 
 
