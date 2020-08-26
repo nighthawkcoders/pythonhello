@@ -24,24 +24,23 @@ print("Hello Series: classy.py")  # identification message
 """
 
 # Dictionary Tags defined as scalars
-n1 = "head"
-n2 = "chin"
-n3 = "body"
-n4 = "legs"
-
+head = "head"
+chin = "chin"
+body = "body"
+legs = "legs"
 
 class Monkey:
     # initialize database
-    def __init__(self, head, chin, body, legs):
+    def __init__(self, phead, pchin, pbody, plegs):
         self.anime = []
-        self.head = head
-        self.chin = chin
-        self.body = body
-        self.legs = legs
-        self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
+        self.head = phead
+        self.chin = pchin
+        self.body = pbody
+        self.legs = plegs
+        self.anime.append({head: phead, chin: pchin, body: pbody, legs: plegs})
 
-    def add_anime(self, head, chin, body, legs):
-        self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
+    def add_anime(self, phead, pchin, pbody, plegs):
+        self.anime.append({head: phead, chin: pchin, body: pbody, legs: plegs})
 
     def get_anime(self, index):
         return self.anime[index]
@@ -143,22 +142,22 @@ class Classy:
             index = count % 2
             for monkey in monkeys:
                 anime = monkey.get_anime(index)
-                print(anime[n1], end="\t")
+                print(anime[head], end="\t")
             print()
 
             for monkey in monkeys:
                 anime = monkey.get_anime(index)
-                print(anime[n2], end="\t")
+                print(anime[chin], end="\t")
             print()
 
             for monkey in monkeys:
                 anime = monkey.get_anime(index)
-                print(anime[n3], end="\t")
+                print(anime[body], end="\t")
             print()
 
             for monkey in monkeys:
                 anime = monkey.get_anime(index)
-                print(anime[n4], end="\t")
+                print(anime[legs], end="\t")
             print()
             time.sleep(1)
             count += 1
