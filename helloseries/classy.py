@@ -104,13 +104,35 @@ class Classy:
         result_db = []
         for record in self.MonkeyDb:
             if index in record:
-                result_db.append(record)
+                result_db.append(record[index])
         return result_db
 
 
 monkeys: Classy = Classy()
 for i in range(monkeys.count()):
-    print(monkeys.get_animes(i))
+    for monkey in monkeys.get_animes(i):
+        print(monkey[head], end="\t")
+print()
+
+for i in range(monkeys.count()):
+    for monkey in monkeys.get_animes(i):
+        print(monkey[chin], end="\t")
+print()
+
+for i in range(monkeys.count()):
+    for monkey in monkeys.get_animes(i):
+        print(monkey[body], end="\t")
+print()
+
+for i in range(monkeys.count()):
+    for monkey in monkeys.get_animes(i):
+        print(monkey[legs], end="\t")
+print()
+
+
+
+
+
 
 
 
