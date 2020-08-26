@@ -20,38 +20,14 @@
 print("Hello Series: classy.py")  # identification message
 
 """
-* A Java utility Class that supports entry point for execution
+* A Python Class that supports entry point for creating object and methods execution
 """
-
-# Dictionary Tags defined as scalars
-head = "head"
-chin = "chin"
-
-
-class Monkey:
-    # initialize database
-    def __init__(self, part_names, head, chin, body, legs):
-        # Database of monkey parts
-        self.head = part_names[0]
-        self.chin = part_names[1]
-        self.body = part_names[2]
-        self.legs = part_names[3]
-        self.anime = []
-        self.add_anime(head, chin, body, legs)
-
-    # add body parts for animation
-    def add_anime(self, head, chin, body, legs):
-        self.anime.append({self.head: head, self.chin: chin, self.body: body, self.legs: legs})
-
-    # get animation for monkey
-    def get_anime(self, index):
-        return self.anime[index]
 
 
 class Classy:
     # Constructor occurs when Classy is created
     def __init__(self):
-        # Classy builds and contains Monkey List
+        # Classy contains Monkey List
         self.Monkeys = []
         # Define Diction tags
         self.head = "head"
@@ -125,32 +101,72 @@ class Classy:
                 "   〈  〉  "
         )
 
+    # count of monkeys
     def count(self):
         return len(self.Monkeys)
 
+    # getter for monkey list
     def get_monkeys(self):
         return self.Monkeys
 
+    # getter for specific monkey in list
     def get_monkey(self, i):
         return self.Monkeys[i]
 
-    def print_anime_monkeys(self):
-        import time
-        count = 0
+    # getter for monkey part list
+    def get_monkey_parts(self):
+        return self.part_list
 
+    # monkey animation print
+    def print_monkeys(self):
+        import time
+        counter = 0
+
+        # 10 seconds of print
         for i in range(10):
             print("\033[H\033[2J")
-            index = count % 2
-            for part in self.part_list:
-                for monkey in self.Monkeys:
-                    print(monkey.get_anime(index)[part], end="\t")
+
+            # horizontal print is monkey part 1st
+            for part in self.get_monkey_parts():
+
+                # cycle through same parts
+                for monkey in self.get_monkeys():
+                    index = counter % monkey.get_animations()
+                    print(monkey.get_part(index, part), end="\t")
                 print()
 
             time.sleep(1)
-            count += 1
+            counter += 1
 
-    def print_animes(self):
-        monkeys = self.Monkeys
-        for monkey in monkeys:
-            print(monkey.anime)
-        print()
+
+"""
+* A Python Class that maintains data for a Monkey object
+"""
+
+
+class Monkey:
+    # initialize database
+    def __init__(self, part_names, head, chin, body, legs):
+        # Database of monkey parts
+        self.head = part_names[0]
+        self.chin = part_names[1]
+        self.body = part_names[2]
+        self.legs = part_names[3]
+        self.anime = []
+        self.add_anime(head, chin, body, legs)
+
+    # add body parts for animation
+    def add_anime(self, head, chin, body, legs):
+        self.anime.append({self.head: head, self.chin: chin, self.body: body, self.legs: legs})
+
+    # get animation for monkey
+    def get_animations(self):
+        return len(self.anime)
+
+    # get animation for monkey
+    def get_anime(self, index):
+        return self.anime[index]
+
+    # get monkey part
+    def get_part(self, index, part):
+        return self.get_anime(index)[part]

@@ -38,7 +38,7 @@ def loopy():
 def classy():
     import classy
     cl = classy.Classy()
-    cl.print_anime_monkeys()
+    cl.print_monkeys()
 
 
 """ Section to define Menu  """
