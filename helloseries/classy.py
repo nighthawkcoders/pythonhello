@@ -17,16 +17,17 @@
 * C. Observe about an object and list of objects
 """
 
-print("Hello Series: classy.py")  # identification message
 
 """
 * A Python Class that supports entry point for creating object and methods execution
 """
 
 
-class Classy:
+class Classy():
     # Constructor occurs when Classy is created
     def __init__(self):
+        print("Hello Series: classy.py")  # identification message
+
         # Classy contains Monkey List
         self.Monkeys = []
         # Define Diction tags

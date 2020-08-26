@@ -17,10 +17,9 @@
  * D. Learn about and describe Imperative and Procedural Programming
  * E. Build a class diagram on a monkey as an object versus two-dimensional array
 """
-print("Hello Series: loopy.py")  # identification message
-
 
 def main():
+    print("Hello Series: loopy.py")  # identification message
 
     """ 2D array data assignment """
     monkeys = [
