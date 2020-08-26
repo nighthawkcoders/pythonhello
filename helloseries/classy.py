@@ -27,113 +27,168 @@ print("Hello Series: classy.py")  # identification message
 """
 
 # Dictionary Tags defined as scalars
-head = "head"
-chin = "chin"
-body = "body"
-legs = "legs"
+n1 = "head"
+n2 = "chin"
+n3 = "body"
+n4 = "legs"
+
+
+class Monkey:
+    # initialize database
+    def __init__(self, head, chin, body, legs):
+        self.anime = []
+        self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
+        self.head = head
+        self.chin = chin
+        self.body = body
+        self.legs = legs
+
+    def add_anime(self, head, chin, body, legs):
+        self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
+
+    def get_anime(self):
+        return self.anime
+
+    def get_head(self):
+        return self.head
+
+    def get_chin(self):
+        return self.chin
+
+    def get_body(self):
+        return self.body
+
+    def get_legs(self):
+        return self.legs
 
 
 class Classy:
-    # initialize database
+    # Constructor occurs when Classy is created
     def __init__(self):
+        # Classy builds and contains Monkey List
+        self.Monkeys = []
 
-        self.MonkeyDb = []
-        self.group = 0
-        self.MonkeyDb.append({self.group: {
-            head:"ʕ༼ ◕_◕ ༽ʔ",
-            chin:"  \\_⎏_/ ",
-            body:"  ++1++ ",
-            legs:"   ⌋ ⌊  "
-        }})
-        self.MonkeyDb.append({self.group: {
-            head:"ʕ༼ ◕_◕ ༽ʔ",
-            chin:"  \\___/ ",
-            body:"  +++++ ",
-            legs:"  〈  〉 "
-        }})
+        # Monkey 0
+        self.Monkeys.append(
+            Monkey(  # initialize monkey parts
+                "ʕ༼ ◕_◕ ༽ʔ",
+                "  \\_⎏_/ ",
+                "  ++1++ ",
+                "   ⌋ ⌊  "
+            )
+        )
+        self.Monkeys.append(
+            Monkey(
+                "ʕ(▀ ⍡ ▀)ʔ",
+                "  \\___/ ",
+                "  <-2-> ",
+                "  〈  〉 "
+            )
+        )
 
-        self.group += 1
-        self.MonkeyDb.append({self.group: {
-            head:"ʕ(▀ ⍡ ▀)ʔ",
-            chin:"  \\___/ ",
-            body:"  <-2-> ",
-            legs:"  〈  〉 "
-        }})
-        self.MonkeyDb.append({self.group: {
-            head:"ʕ(▀ ⍡ ▀)ʔ",
-            chin:"  \\_⎐_/ ",
-            body:"  <--->  ",
-            legs:"   ⌋  ⌊  "
-        }})
+        self.Monkeys.append(
+            Monkey(
+                " ʕ ͡° ͜ʖ ° ͡ʔ ",
+                "   \\___/",
+                "   ==3== ",
+                "   _/ \\_"
+            )
+        )
 
-        self.group += 1
-        self.MonkeyDb.append({self.group: {
-            head:" ʕ ͡° ͜ʖ ° ͡ʔ ",
-            chin:"   \\___/",
-            body:"   ==3== ",
-            legs:"   _/ \\_"
-        }})
-        self.MonkeyDb.append({self.group: {
-            head:" ʕ ͡° ͜ʖ ° ͡ʔ ",
-            chin:"   \\_⍾_/ ",
-            body:"   ===== ",
-            legs:"   〈  〉 "
-        }})
+        self.Monkeys.append(
+            Monkey(
+                " ʕ( ◕‿◕✿)ʔ ",
+                "   \\_⍾_/ ",
+                "   ==4==  ",
+                "   _/ \\_  "
+            )
+        )
 
-        self.group += 1
-        self.MonkeyDb.append({self.group: {
-            head:" ʕ(◕‿◕✿)ʔ ",
-            chin:"   \\_⍾_/ ",
-            body:"   ==4==  ",
-            legs:"   _/ \\_  "
-        }})
-        self.MonkeyDb.append({self.group: {
-            head:" ʕ(◕‿◕✿)ʔ ",
-            chin:"   \\___/  ",
-            body:"   =====  ",
-            legs:"   〈  〉  "
-        }})
-
-        self.group += 1
-
+        """
+        self.Monkeys.append(
+            Monkey(  # initialize monkey parts
+                "ʕ༼ ◕_◕ ༽ʔ",
+                "  \\_⎏_/ ",
+                "  ++1++ ",
+                "   ⌋ ⌊  "
+            ).add_anime(  # add alternate part for animation
+                "ʕ༼ ◕_◕ ༽ʔ",
+                "  \\_⎏_/ ",
+                "  ++1++ ",
+                "   ⌋ ⌊  "
+            )
+        )
+        # Monkey 1
+        self.Monkeys.append(
+            Monkey(
+                "ʕ(▀ ⍡ ▀)ʔ",
+                "  \\___/ ",
+                "  <-2-> ",
+                "  〈  〉 "
+            ).add_anime(
+                "ʕ(▀ ⍡ ▀)ʔ",
+                "  \\_⎐_/ ",
+                "  <--->  ",
+                "   ⌋  ⌊  "
+            )
+        )
+        # Monkey 2
+        self.Monkeys.append(
+            Monkey(
+                " ʕ ͡° ͜ʖ ° ͡ʔ ",
+                "   \\___/",
+                "   ==3== ",
+                "   _/ \\_"
+            ).add_anime(
+                " ʕ ͡° ͜ʖ ° ͡ʔ ",
+                "   \\_⍾_/ ",
+                "   ===== ",
+                "   〈  〉 "
+            )
+        )
+        # Monkey 3
+        self.Monkeys.append(
+            Monkey(
+                " ʕ(◕‿◕✿)ʔ ",
+                "   \\_⍾_/ ",
+                "   ==4==  ",
+                "   _/ \\_  "
+            ).add_anime(
+                " ʕ(◕‿◕✿)ʔ ",
+                "   \\___/  ",
+                "   =====  ",
+                "   〈  〉  "
+            )
+        )
+        """
 
     def count(self):
-        return self.group
+        return len(self.Monkeys)
 
-    def get_animes(self, index):
-        result_db = []
-        for record in self.MonkeyDb:
-            if index in record:
-                result_db.append(record[index])
-        return result_db
+    def get_monkeys(self):
+        return self.Monkeys
 
+    def get_monkey(self, i):
+        return self.Monkeys[i]
 
-monkeys: Classy = Classy()
-for i in range(monkeys.count()):
-    for monkey in monkeys.get_animes(i):
-        print(monkey[head], end="\t")
-print()
+    def print_monkeys(self):
+        monkeys = self.Monkeys
+        for monkey in monkeys:
+            print(monkey.head, end="\t")
+        print()
 
-for i in range(monkeys.count()):
-    for monkey in monkeys.get_animes(i):
-        print(monkey[chin], end="\t")
-print()
+        for monkey in monkeys:
+            print(monkey.chin, end="\t")
+        print()
 
-for i in range(monkeys.count()):
-    for monkey in monkeys.get_animes(i):
-        print(monkey[body], end="\t")
-print()
+        for monkey in monkeys:
+            print(monkey.body, end="\t")
+        print()
 
-for i in range(monkeys.count()):
-    for monkey in monkeys.get_animes(i):
-        print(monkey[legs], end="\t")
-print()
+        for monkey in monkeys:
+            print(monkey.legs, end="\t")
+        print()
 
 
-
-
-
-
-
-
-
+classy: Classy = Classy()
+classy.print_monkeys()

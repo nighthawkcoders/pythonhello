@@ -30,13 +30,12 @@ def listy():
 
 # ASCII/unicode art imperative style
 def loopy():
-    # import loopy
-    exec(open("stringy.py").read())
+    import loopy
+    #exec(open("stringy.py").read())
 
 # ASCII/unicode art object oriented style
 def classy():
-    # import classy
-    exec(open("classy.py").read())
+    import classy
 
 
 """ Section to define Menu  """
