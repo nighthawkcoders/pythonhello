@@ -34,11 +34,11 @@ class Monkey:
     # initialize database
     def __init__(self, head, chin, body, legs):
         self.anime = []
-        self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
         self.head = head
         self.chin = chin
         self.body = body
         self.legs = legs
+        self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
 
     def add_anime(self, head, chin, body, legs):
         self.anime.append({n1: head, n2: chin, n3: body, n4: legs})
@@ -74,46 +74,11 @@ class Classy:
                 "   ⌋ ⌊  "
             )
         )
-        self.Monkeys.append(
-            Monkey(
-                "ʕ(▀ ⍡ ▀)ʔ",
-                "  \\___/ ",
-                "  <-2-> ",
-                "  〈  〉 "
-            )
-        )
-
-        self.Monkeys.append(
-            Monkey(
-                " ʕ ͡° ͜ʖ ° ͡ʔ ",
-                "   \\___/",
-                "   ==3== ",
-                "   _/ \\_"
-            )
-        )
-
-        self.Monkeys.append(
-            Monkey(
-                " ʕ( ◕‿◕✿)ʔ ",
-                "   \\_⍾_/ ",
-                "   ==4==  ",
-                "   _/ \\_  "
-            )
-        )
-
-        """
-        self.Monkeys.append(
-            Monkey(  # initialize monkey parts
+        self.Monkeys[0].add_anime(
                 "ʕ༼ ◕_◕ ༽ʔ",
                 "  \\_⎏_/ ",
                 "  ++1++ ",
                 "   ⌋ ⌊  "
-            ).add_anime(  # add alternate part for animation
-                "ʕ༼ ◕_◕ ༽ʔ",
-                "  \\_⎏_/ ",
-                "  ++1++ ",
-                "   ⌋ ⌊  "
-            )
         )
         # Monkey 1
         self.Monkeys.append(
@@ -122,12 +87,13 @@ class Classy:
                 "  \\___/ ",
                 "  <-2-> ",
                 "  〈  〉 "
-            ).add_anime(
+            )
+        )
+        self.Monkeys[1].add_anime(
                 "ʕ(▀ ⍡ ▀)ʔ",
                 "  \\_⎐_/ ",
                 "  <--->  ",
                 "   ⌋  ⌊  "
-            )
         )
         # Monkey 2
         self.Monkeys.append(
@@ -136,28 +102,28 @@ class Classy:
                 "   \\___/",
                 "   ==3== ",
                 "   _/ \\_"
-            ).add_anime(
+            )
+        )
+        self.Monkeys[2].add_anime(
                 " ʕ ͡° ͜ʖ ° ͡ʔ ",
                 "   \\_⍾_/ ",
                 "   ===== ",
                 "   〈  〉 "
-            )
         )
-        # Monkey 3
         self.Monkeys.append(
             Monkey(
-                " ʕ(◕‿◕✿)ʔ ",
+                " ʕ( ◕‿◕✿)ʔ ",
                 "   \\_⍾_/ ",
                 "   ==4==  ",
                 "   _/ \\_  "
-            ).add_anime(
+            )
+        )
+        self.Monkeys[3].add_anime(
                 " ʕ(◕‿◕✿)ʔ ",
                 "   \\___/  ",
                 "   =====  ",
                 "   〈  〉  "
-            )
         )
-        """
 
     def count(self):
         return len(self.Monkeys)
@@ -184,4 +150,10 @@ class Classy:
 
         for monkey in monkeys:
             print(monkey.legs, end="\t")
+        print()
+
+    def print_animes(self):
+        monkeys = self.Monkeys
+        for monkey in monkeys:
+            print(monkey.anime)
         print()

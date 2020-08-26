@@ -39,6 +39,7 @@ def classy():
     import classy
     cl = classy.Classy()
     cl.print_monkeys()
+    cl.print_animes()
 
 
 """ Section to define Menu  """
