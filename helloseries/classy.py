@@ -4,20 +4,17 @@
 * Level: Medium
 *
 * Exploration Ideas
-* 1. Add methods or logic to print monkeys vertically
-* 2. Add names or other properties to the monkeys
-* 3. Add to poem, ie animation of monkey breaking head
-* 4. Build a project with your own ascii/unicode art or logo, experiment with animation
-* 5. Learn to deploy your Java class or JAR to run animation from shell (deployed java).  FYI, the shell has properties (character sequences ) to clear and improve animation.
+* 1. Add names or other properties to the monkeys
+* 2. Add the poem
+* 3. Experiment with animation
+* 4. Build a project with your own ascii/unicode art or logo
 *
 * Learning Considerations
 * Note: Classy (OOP Programming Style)
 * Project Focus: Animated Monkey Jumpers
-* A. Observe logic for 5 to 1 monkey in countdown and timer
+* A. Observe logic for print Monkey in row
 * B. Learn about constructors
-* C. Learn about an object and list of objects
-* D. Learn about HashMap (Name-Value pairs)
-* E. Learn about StringBuilder
+* C. Observe about an object and list of objects
 """
 
 print("Hello Series: classy.py")  # identification message
@@ -188,7 +185,3 @@ class Classy:
         for monkey in monkeys:
             print(monkey.legs, end="\t")
         print()
-
-
-classy: Classy = Classy()
-classy.print_monkeys()

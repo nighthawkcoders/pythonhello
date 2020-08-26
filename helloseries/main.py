@@ -15,8 +15,8 @@ Abstraction is talking linear code and turning it into functional or object orie
 
 # String playground code
 def stringy():
-    #import stringy
     exec(open("stringy.py").read())
+
 
 # Number playground code
 def numby():
@@ -31,11 +31,14 @@ def listy():
 # ASCII/unicode art imperative style
 def loopy():
     import loopy
-    #exec(open("stringy.py").read())
+    loopy.main()
+
 
 # ASCII/unicode art object oriented style
 def classy():
     import classy
+    cl: classy.Classy = classy.Classy()
+    cl.print_monkeys()
 
 
 """ Section to define Menu  """
