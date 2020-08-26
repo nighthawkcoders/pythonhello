@@ -26,36 +26,26 @@ print("Hello Series: classy.py")  # identification message
 # Dictionary Tags defined as scalars
 head = "head"
 chin = "chin"
-body = "body"
-legs = "legs"
+
 
 class Monkey:
     # initialize database
-    def __init__(self, phead, pchin, pbody, plegs):
+    def __init__(self, part_names, head, chin, body, legs):
+        # Database of monkey parts
+        self.head = part_names[0]
+        self.chin = part_names[1]
+        self.body = part_names[2]
+        self.legs = part_names[3]
         self.anime = []
-        self.head = phead
-        self.chin = pchin
-        self.body = pbody
-        self.legs = plegs
-        self.anime.append({head: phead, chin: pchin, body: pbody, legs: plegs})
+        self.add_anime(head, chin, body, legs)
 
-    def add_anime(self, phead, pchin, pbody, plegs):
-        self.anime.append({head: phead, chin: pchin, body: pbody, legs: plegs})
+    # add body parts for animation
+    def add_anime(self, head, chin, body, legs):
+        self.anime.append({self.head: head, self.chin: chin, self.body: body, self.legs: legs})
 
+    # get animation for monkey
     def get_anime(self, index):
         return self.anime[index]
-
-    def get_head(self):
-        return self.head
-
-    def get_chin(self):
-        return self.chin
-
-    def get_body(self):
-        return self.body
-
-    def get_legs(self):
-        return self.legs
 
 
 class Classy:
@@ -63,10 +53,17 @@ class Classy:
     def __init__(self):
         # Classy builds and contains Monkey List
         self.Monkeys = []
+        # Define Diction tags
+        self.head = "head"
+        self.chin = "chin"
+        self.body = "body"
+        self.legs = "legs"
+        self.part_list = [self.head, self.chin, self.body, self.legs]
 
         # Monkey 0
         self.Monkeys.append(
-            Monkey(  # initialize monkey parts
+            Monkey(
+                self.part_list,  # initialize monkey parts
                 "ʕ༼ ◕_◕ ༽ʔ",
                 "  \\_⎏_/ ",
                 "  ++1++ ",
@@ -82,6 +79,7 @@ class Classy:
         # Monkey 1
         self.Monkeys.append(
             Monkey(
+                self.part_list,
                 "ʕ(▀ ⍡ ▀)ʔ",
                 "  \\___/ ",
                 "  <-2-> ",
@@ -97,6 +95,7 @@ class Classy:
         # Monkey 2
         self.Monkeys.append(
             Monkey(
+                self.part_list,
                 " ʕ ͡° ͜ʖ ° ͡ʔ ",
                 "   \\___/",
                 "   ==3== ",
@@ -109,8 +108,10 @@ class Classy:
                 "   ===== ",
                 "   〈  〉 "
         )
+        # Monkey 3
         self.Monkeys.append(
             Monkey(
+                self.part_list,
                 " ʕ( ◕‿◕✿)ʔ ",
                 "   \\_⍾_/ ",
                 "   ==4==  ",
@@ -135,53 +136,18 @@ class Classy:
 
     def print_anime_monkeys(self):
         import time
-        monkeys = self.Monkeys
         count = 0
+
         for i in range(10):
             print("\033[H\033[2J")
             index = count % 2
-            for monkey in monkeys:
-                anime = monkey.get_anime(index)
-                print(anime[head], end="\t")
-            print()
+            for part in self.part_list:
+                for monkey in self.Monkeys:
+                    print(monkey.get_anime(index)[part], end="\t")
+                print()
 
-            for monkey in monkeys:
-                anime = monkey.get_anime(index)
-                print(anime[chin], end="\t")
-            print()
-
-            for monkey in monkeys:
-                anime = monkey.get_anime(index)
-                print(anime[body], end="\t")
-            print()
-
-            for monkey in monkeys:
-                anime = monkey.get_anime(index)
-                print(anime[legs], end="\t")
-            print()
             time.sleep(1)
             count += 1
-
-
-    def print_monkeys(self):
-        monkeys = self.Monkeys
-        count = 0;
-
-        for monkey in monkeys:
-            print(monkey.head, end="\t")
-        print()
-
-        for monkey in monkeys:
-            print(monkey.chin, end="\t")
-        print()
-
-        for monkey in monkeys:
-            print(monkey.body, end="\t")
-        print()
-
-        for monkey in monkeys:
-            print(monkey.legs, end="\t")
-        print()
 
     def print_animes(self):
         monkeys = self.Monkeys
