@@ -76,7 +76,7 @@ monkey1a = "ʕ༼ ◕_◕ ༽ʔ" + "\n" + \
 monkey1b = "ʕ༼ ◕_◕ ༽ʔ" + "\n" + \
            "  \\___/ " + "\n" + \
            "  +++++ " + "\n" + \
-           "   ⌋ ⌊  "
+           "  〈  〉 "
 print(monkey1a)
 print(monkey1b)
 print()
