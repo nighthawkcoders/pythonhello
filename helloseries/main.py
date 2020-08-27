@@ -1,16 +1,17 @@
 """
-Python starting point for Project Hello Series project is this main.py code. This main.py code has been designed to run a text based Menu.
+The main.py file is the Python starting point for the Hello Series project. This main.py code has been designed to run a text based Menu.
 
-A text base menu has purpose of getting input from user and performing the selected action.  This code has been designed to run  code from multiple files.
+A text base menu has purpose of getting input from user and performing the selected action.  This code has been designed to run other code from the multiple files within the project.
 
-Some of the Python files in this Project have a linear organization.  The intention of these files is to introduce, or say hello, to the features of the language.
+Some of the Python files in this Project have a linear organization.  The intention of these files is to introduce, or say hello, to the features of the language.  The string, number, and list files are ommisive of structure.  Thus, these files could be considered "ploaygound", meaning the have no formality.
 
-The Menu code in this file is organized in both functional and objected oriented styles.  By the end of this series, it will be important to understand the topics in the menu and identify code in linear, functional, or objected oriented structures.
+Abstraction is taking linear code and turning it into procedural or object oriented code.  This is typically done when the file has an overall purpose.  The menu, loop, and class code in this project introduce design, structure, and purpose.  These are key practices described in the AP CS Principles course and exam description.
 
-Abstraction is talking linear code and turning it into functional or object oriented code.  This is a key idea on the AP CSP exam.
+The Menu code in this file is organized in both procedural and objected oriented styles.  By the end of this series, it will be important to understand the menu code and identify linear, procedural, and objected oriented structures.
+
 """
 
-""" Section to define Python files and execution  """
+""" Section to execute Python files outside of the main.py file, but within the Hello Series project  """
 
 
 # String playground code
@@ -28,23 +29,23 @@ def listy():
     exec(open("listy.py").read())
 
 
-# ASCII/unicode art imperative style
+# ASCII/unicode art in imperative or procdural style
 def loopy():
     import loopy
     loopy.main()
 
 
-# ASCII/unicode art object oriented style
+# ASCII/unicode art in object oriented style
 def classy():
     import classy
     cl = classy.Classy()
     cl.print_monkeys()
 
 
-""" Section to define Menu  """
+""" Section to define Menu data and the reference methods for that data  """
 
 
-# Menu data and methods
+# Menu data and methods - object oriented style as it contains data definitions and associates methods with that data
 class Menu:
     # Initialize menu properties
     def __init__(self):
@@ -78,10 +79,10 @@ class Menu:
         return bool(exe_func)
 
 
-""" Section to display Menu """
+""" Section to display Menu data, receive input from user of program and run selected option(s) """
 
 
-# Menu display and execution
+# Menu display and execution - imperative or procedural style using recursive control flow
 def menu_control(menu):
     # heading section
     print()
@@ -117,9 +118,10 @@ def menu_control(menu):
     menu_control(menu)  # recursion
 
 
-""" Section to Start execution  """
+""" Section to start execution of program  """
 
-# menu object derived from "Class Menu"
+# Activate and run Menu - linear flow of control
+# a menu object derived from "Class Menu", this is defining an object only.  Flow of control remains linear.
 menu: Menu = Menu()
-# Call function "def menu_control"
+# a call to menu control function "def menu_control", passing menu object as a parameter to the function. Flow of control is shifted to menu_control function.
 menu_control(menu)

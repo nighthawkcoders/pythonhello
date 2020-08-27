@@ -5,28 +5,45 @@
 *
 * Exploration Ideas
 * 1. Add names or other properties to the monkeys
-* 2. Add the poem
-* 3. Experiment with animation
-* 4. Build a project with your own ascii/unicode art or logo
+* 2. Add to and finish the poem
+* 3. Experiment with animation, it is possible with code give to add more than two steps to animation
+* 4. Build a project with your own ascii/unicode art (ie design a logo or signature)
 *
 * Learning Considerations
 * Note: Classy (OOP Programming Style)
 * Project Focus: Animated Monkey Jumpers
-* A. Observe logic for print Monkey in row
-* B. Learn about constructors
-* C. Observe about an object and list of objects
+* A. Observe logic for printing monkeys in row
+* B. Learn about constructors (__init__)
+* C. Learn an object and list of objects
+* D. Make a generic (ie Anime class) from which Monkey is a child.  This could lead to different types of animations.
 """
 
 
-"""
-* A Python Class that supports entry point for creating object and methods execution
-"""
+"""Create string art objects to animate in console.  No strict convention to Unicode, implemnted on MacOS.
 
+As implemented its intention is to support the foundations for the Monkey Jumpers poem... "Ten little monkeys jumping on the bed..." 
+It is left as an excercise to the user to complete the poem or adapt this art to somethin of interest to the user.
+Works best on a console or terminal that supports screen clear: print("\033[H\033[2J") 
+
+  Typical usage example:
+
+  import classy
+  cl = classy.Classy()
+  cl.print_monkeys() 
+"""
 
 class Classy():
-    # Constructor occurs when Classy is created
+    """Utility class
+
+    Builds the foundation for the Monkey Jumper poem.
+
+    Attributes:
+        Monkeys: A table of Monkey instances.
+        part_list: A description of monkey parts
+    """
+    # Constructor occurs when Classy is instatiated
     def __init__(self):
-        print("Hello Series: classy.py")  # identification message
+        print("Hello Series: classy.py")  # illustrative identification message
 
         # Classy contains Monkey List
         self.Monkeys = []
@@ -48,10 +65,10 @@ class Classy():
             )
         )
         self.Monkeys[0].add_anime(
-                "ʕ༼ ◕_◕ ༽ʔ",
-                "  \\_⎏_/ ",
-                "  ++1++ ",
-                "   ⌋ ⌊  "
+            "ʕ༼ ◕_◕ ༽ʔ",
+            "  \\_⎏_/ ",
+            "  ++1++ ",
+            "   ⌋ ⌊  "
         )
         # Monkey 1
         self.Monkeys.append(
@@ -64,10 +81,10 @@ class Classy():
             )
         )
         self.Monkeys[1].add_anime(
-                "ʕ(▀ ⍡ ▀)ʔ",
-                "  \\_⎐_/ ",
-                "  <--->  ",
-                "   ⌋  ⌊  "
+            "ʕ(▀ ⍡ ▀)ʔ",
+            "  \\_⎐_/ ",
+            "  <--->  ",
+            "   ⌋  ⌊  "
         )
         # Monkey 2
         self.Monkeys.append(
@@ -80,10 +97,10 @@ class Classy():
             )
         )
         self.Monkeys[2].add_anime(
-                " ʕ ͡° ͜ʖ ° ͡ʔ ",
-                "   \\_⍾_/ ",
-                "   ===== ",
-                "   〈  〉 "
+            " ʕ ͡° ͜ʖ ° ͡ʔ ",
+            "   \\_⍾_/ ",
+            "   ===== ",
+            "   〈  〉 "
         )
         # Monkey 3
         self.Monkeys.append(
@@ -96,10 +113,10 @@ class Classy():
             )
         )
         self.Monkeys[3].add_anime(
-                " ʕ(◕‿◕✿)ʔ ",
-                "   \\___/  ",
-                "   =====  ",
-                "   〈  〉  "
+            " ʕ(◕‿◕✿)ʔ ",
+            "   \\___/  ",
+            "   =====  ",
+            "   〈  〉  "
         )
 
     # count of monkeys
@@ -141,11 +158,19 @@ class Classy():
 
 
 """
-* A Python Class that maintains data for a Monkey object
+* A Python Class that maintains defines data for a Monkey object
 """
 
 
 class Monkey:
+    """Monkey class
+
+      Retain data for Monkey parts
+
+      Attributes:
+          anime: A table of Monkey part animations.
+          head, chin, body, legs: Description of parts.
+    """
     # initialize database
     def __init__(self, part_names, head, chin, body, legs):
         # Database of monkey parts
