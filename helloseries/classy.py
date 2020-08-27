@@ -142,14 +142,14 @@ class Classy():
 
         # 10 seconds of print
         for i in range(10):
-            print("\033[H\033[2J")
+            print("\033[H\033[2J")  # terminal screen clear
 
             # horizontal print is monkey part 1st
             for part in self.get_monkey_parts():
 
-                # cycle through same parts
+                # cycle through same parts for each monkey
                 for monkey in self.get_monkeys():
-                    index = counter % monkey.get_animations()
+                    index = counter % monkey.get_animations()   # cycles based on number of animations
                     print(monkey.get_part(index, part), end="\t")
                 print()
 
