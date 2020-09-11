@@ -10,6 +10,7 @@ Abstraction is taking linear code and turning it into procedural or object orien
 The Menu code in this file is organized in both procedural and objected oriented styles.  By the end of this series, it will be important to understand the menu code and identify linear, procedural, and objected oriented structures.
 
 """
+from helloseries import loopy
 
 """ Section to execute Python files outside of the main.py file, but within the Hello Series project  """
 
@@ -41,6 +42,9 @@ def classy():
     cl = classy.Classy()
     cl.print_monkeys()
 
+def randomy():
+    exec(open("randomy.py").read())
+
 
 """ Section to define Menu data and the reference methods for that data  """
 
@@ -56,7 +60,9 @@ class Menu:
             2: ["Numbers", numby],
             3: ["Lists", listy],
             4: ["Loops", loopy],
-            5: ["Classes", classy]
+            5: ["Classes", classy],
+            6: ["Random", randomy]
+
         }
         # Options data indexes
         self.title = 0
@@ -112,9 +118,9 @@ def menu_control(menu):
             # raises index error
             raise IndexError()
     except ValueError:  # not a number error occurs if int(index) fails
-        print("Not a number, {0} is not a valid index.".format(index))
+        print("Not a number, {0} is not  valid.".format(index))
     except IndexError:  # error raised above
-        print("Out of range. {0} is not a valid index.".format(index))
+        print("Out of range. {0} is not a valid option.".format(index))
     menu_control(menu)  # recursion
 
 
